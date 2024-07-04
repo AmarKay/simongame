@@ -1,0 +1,147 @@
+:root {
+  --box-length: calc((100dvmin / 2) - 2rem);
+  --section-width: calc(100dvmin);
+}
+
+* {
+  color: wheat;
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  height: 100%;
+}
+
+
+
+@keyframes gradientAnimation {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+body {
+  font-family: "Lucida Console", "Courier New", monospace;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(135deg, rgb(90, 99, 156), rgb(155, 134, 189));
+  background-size: 200% 200%;
+  animation-name: gradientAnimation;
+  animation-duration: 30s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+
+header {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  background-color: rgb(90, 99, 156);
+  width: 100%;
+  padding-block: 0.5rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.box {
+  width: var(--box-length);
+  height: var(--box-length);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.33);
+}
+
+.pressed {
+  opacity: 0.5;
+  box-shadow: 0px 0px 0px transparent;
+}
+
+.red {
+  background-color: rgb(241, 79, 33);
+}
+
+.green {
+  background-color: rgb(126, 185, 0);
+}
+
+.blue {
+  background-color: rgb(0, 163, 238);
+}
+
+.yellow {
+  background-color: rgb(254, 184, 0);
+}
+
+main {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+h2 {
+  margin-inline: 1rem;
+}
+
+button {
+  font-family: inherit;
+  background-color: rgb(155, 134, 189);
+  border: 0;
+  font-size: large;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: box-shadow 0.05s;
+  width: 10rem;
+}
+
+button:active {
+  box-shadow: 0px 0px 0px transparent;
+}
+
+
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: var(--section-width);
+  gap: 0.5rem;
+}
+
+footer {
+  background-color: rgb(90, 99, 156);
+  width: 100%;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 1rem;
+  text-align: center;
+}
+
+p {
+  padding: 0.5rem;
+  font-size: x-small;
+}
+
+/* for landscape phones */
+@media screen and (min-width: 576px) {
+  :root {
+    --box-length: calc((100dvmin / 3) - 2rem);
+    --section-width: calc(100dvmin / 1.5)
+  }
+}
